@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "95ff822f-a39a-49c6-8f53-8acf02c1b412",
+		"name": "Micuento",
+		"description": "Set of requests to perform in Task manager app.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/task/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Task9\",\n\t\"dueDate\": \"2020-09-10\",\n\t\"priority\": 1\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/task/create",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"create"
+					]
+				},
+				"description": "Create task"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/task",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/task",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task"
+					]
+				},
+				"description": "Get all models"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/task/update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Task UPDATED3\",\n\t\"dueDate\": \"2020-09-10\",\n\t\"priority\": 4\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/task/4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"4"
+					]
+				},
+				"description": "Update task"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/task/4",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/task/4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"task",
+						"4"
+					]
+				},
+				"description": "Delete task"
+			},
+			"response": []
+		}
+	]
+}

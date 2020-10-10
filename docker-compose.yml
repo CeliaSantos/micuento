@@ -1,0 +1,28 @@
+version: '3.4'
+services:
+
+  mysql-db:
+    image: mysql:5.7
+    container_name: mysql-db
+    volumes:
+      - /opt/micuento/mysql/:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: MCPW1234
+      MYSQL_DATABASE: task
+    ports:
+      - "3307:3306"
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: "30m"
+        max-file: "10"
+    networks:
+      default:
+        aliases:
+          - mysql-db
+
+networks:
+  default:
+    external:
+      name: micuento-network

@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "Micuento test app",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node setup.js development && node -r esm src/app.js"
+  },
+  "author": "Celia Santos",
+  "license": "ISC",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "express-validator": "^6.6.1"
+  }
+}
