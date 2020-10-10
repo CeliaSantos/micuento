@@ -19,4 +19,6 @@ Now your mysql database is ready!
 ### Run task manager app
 
 * Place yourself in the sources root directory and write: 
-`./initializeMysql.sh`
+`npm start`
+
+Now, you can start trying your postman requests! :)
