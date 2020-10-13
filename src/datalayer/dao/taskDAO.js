@@ -7,15 +7,18 @@ import {
 } from '../entity/taskEntity';
 
 
-export const getAll = (sort, callback) => {
-    let query = '';
-    if (sort == null){
-        query = `SELECT * FROM task.task`;
-    } else {
+export const getAll = (sort, type, callback) => {
+    let query = `SELECT * FROM task.task`;
+    if (type != null){
+        if ( type == 'pending' ) query = query + ` WHERE due_date >= CURDATE()`;
+        if ( type == 'overdue' ) query = query + ` WHERE due_date <= CURDATE()`;
+    }
+    if (sort != null) {
+        if (sort == 'name') sort = 'name';
         if (sort == 'dueDate') sort = 'due_date';
         if (sort == 'createdAt') sort = 'created_at';
         if (sort == 'updatedAt') sort = 'updated_at';
-        query = `SELECT * FROM task.task ORDER BY ${sort}`;
+        query = query + ` ORDER BY ${sort}`;
     }
     connection.query(query, (err, rows) => {
         if(err) throw err;

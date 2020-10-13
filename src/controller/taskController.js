@@ -6,8 +6,10 @@ import {
 export const getTasks = (req, res) => {
     setHeaders(res);
     let sort = null;
+    let type = null;
     if (req.query.hasOwnProperty('sort')) sort = req.query.sort;
-    getAll( sort, function ( data ) {
+    if (req.query.hasOwnProperty('type')) type = req.query.type;
+    getAll( sort, type, function ( data ) {
         if(data.length === 0) return res.status(200).send([]);
         else return res.status(200).send(JSON.stringify(data));
     });
@@ -22,7 +24,7 @@ export const createTask = (req, res) => {
             else return res.status(200).send(JSON.stringify(data));
         });
     } else {
-        return res.status(400).send("No valid body.");
+        return res.status(400).send("No valid body parameters.");
     }
 };
 
